@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Padalarang</title>
+    <!-- Link CSS Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2>Peta Padalarang</h2>
+    <!-- Elemen untuk menampilkan peta -->
+    <div id="map"></div>
+
+    <!-- JavaScript Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Inisialisasi peta dengan lokasi awal di Padalarang (koordinat bisa disesuaikan)
+        var map = L.map('map').setView([-6.8378, 107.5154], 13);
+
+        // Menambahkan tile dari OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Menambahkan marker untuk menunjukkan titik di Padalarang
+        var marker = L.marker([-6.8378, 107.5154]).addTo(map);
+        marker.bindPopup("<b>Padalarang</b><br>Wilayah ini adalah Padalarang.").openPopup();
+    </script>
+</body>
+</html>
